@@ -15,10 +15,15 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/carousel/"
     />
+    <link 
+     rel="stylesheet" 
+     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
     <script src="../assets/js/color-modes.js"></script>
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <meta name="theme-color" content="#712cf9" />
     <link href="carousel.css" rel="stylesheet" />
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -314,9 +319,7 @@
       </div>
       <!-- Marketing messaging and featurettes
   ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-       <br>
-       
+      <!-- Wrap the rest of the page in another container to center all the content. --> 
       <div class="container marketing" id="productos">
         <!-- Three columns of text below the carousel -->
         <div class="row">
@@ -374,7 +377,7 @@
             </p>
           </div>
           <div class="col-md-5">
-            <img src="img/p4.png" alt="sabor puro" width="450px">
+            <img src="img/p4.png" alt="sabor puro" class="img-fluid">
               <title>Placeholder</title>
               <rect
                 width="100%"
@@ -396,7 +399,7 @@
             </p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img src="img/p5.png" alt="calma tu sed" width="450px">
+            <img src="img/p5.png" alt="calma tu sed" class="img-fluid">
               <title>Placeholder</title>
               <rect
                 width="100%"
@@ -417,7 +420,7 @@
             </p>
           </div>
           <div class="col-md-5">
-            <img src="img/p6.png" alt="club GO-DRINK" width="450px">
+            <img src="img/p6.png" alt="club GO-DRINK" class="img-fluid">
               <title>Placeholder</title>
               <rect
                 width="100%"
@@ -430,14 +433,88 @@
         <hr class="featurette-divider" />
         <!-- /END THE FEATURETTES -->
       </div>
-      <!-- /.container -->
-      <!-- FOOTER -->
-      <footer class="container" id="contacto">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>
-          &copy; 2017–2025 Company, Inc. &middot;
-          <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-        </p>
+  
+      </div>
+      <section class="featurette-divider" class="container" id="contacto">
+        <div class="row featurette text-center">
+            <h2 class="featurette-heading fw-normal lh-1 mb-2">
+                ¡Hablemos! <span class="text-muted"><br>Contacto GO-DRINK</span>
+            </h2>
+
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-3">
+                    ¿Tienes preguntas sobre nuestros sabores o quieres asociarte? Envíanos un mensaje y te responderemos pronto.
+                </p>
+                <form class="contact-form" id="contactForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="contactName" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="contactEmail" placeholder="Tu Correo Electrónico" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="contactMessage" rows="4" placeholder="Tu Mensaje..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        Enviar Mensaje
+                    </button>
+                    <div id="successMessage" class="alert alert-success mt-3" style="display:none;" role="alert">
+                        ¡Mensaje enviado con éxito! Te contactaremos pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+      </section>
+      <hr class="featurette-divider" />
+      <footer class="go-drink-footer">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-6 col-md-3 mb-3">
+              <h5 class="footer-title">GO-DRINK</h5>
+              <p class="text-muted small mt-3">
+                Tu refresco favorito. Siempre burbujeante.
+              </p>
+              <p class="text-muted small">
+                &copy; 2025 GO-DRINK, Inc. Todos los derechos reservados.
+              </p>
+            </div>
+
+            <div class="col-6 col-md-3 mb-3">
+              <h5 class="footer-title">Explora</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#myCarousel" class="nav-link p-0 text-muted">Inicio</a></li>
+                <li class="nav-item mb-2"><a href="#productos" class="nav-link p-0 text-muted">Productos</a></li>
+                <li class="nav-item mb-2"><a href="#beneficios" class="nav-link p-0 text-muted">Beneficios</a></li>
+                <li class="nav-item mb-2"><a href="#contacto" class="nav-link p-0 text-muted">Contacto</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-3">
+              <h5 class="footer-title">Legal</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacidad</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Términos de Uso</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Política de Cookies</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 mb-3">
+             <h5 class="footer-title">Síguenos</h5>
+           <div class="d-flex justify-content-start mt-3">
+             <a href="URL_DE_TU_FACEBOOK" class="footer-icon me-3" aria-label="Facebook">
+             <i class="bi bi-facebook"></i> 
+             </a> 
+             <a href="URL_DE_TU_INSTAGRAM" class="footer-icon me-3" aria-label="Instagram">
+             <i class="bi bi-instagram"></i>
+             </a>
+             <a href="URL_DE_TU_X" class="footer-icon" aria-label="X (Twitter)">
+             <i class="bi bi-twitter-x"></i> 
+             </a>
+           </div>
+             <p class="float-end mt-4"><a href="#myCarousel" class="back-to-top">Volver Arriba</a></p>
+           </div>
+          </div>
+        </div>
       </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

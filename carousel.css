@@ -4,7 +4,7 @@
 
 body {
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
   color: rgb(var(--bs-tertiary-color-rgb));
 }
 
@@ -24,12 +24,27 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 30rem;
+  height: 26rem;
 }
 .carousel-item img{
   width: 100%;
   height: 100%;
   object-fit: cover; /* Mantiene la proporción y cubre el área, eliminando bandas negras */
+}
+/* carousel.css (Añadir al final) */
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Capa negra con 40% de opacidad (puedes ajustar el 0.4) */
+  background: rgba(0, 0, 0, 0.664); 
+  /* Asegura que la capa esté justo debajo del texto */
+  z-index: 5; 
+  pointer-events: none;
 }
 
 /* MARKETING CONTENT
@@ -46,7 +61,16 @@ body {
   margin-left: .75rem;
 }
 /* rtl:end:ignore */
+/* carousel.css (Añadir al final) */
 
+/* Estilo para las imágenes de productos */
+.marketing .col-lg-4 img {
+  /* Aplicamos un borde redondeado. Puedes ajustar el valor (ej. 10px, 15px) */
+  border-radius: 10px; 
+  /* Aseguramos que se mantenga el ancho y alto definido en el HTML si es necesario */
+  max-width: 100%;
+  height: auto;
+}
 
 /* Featurettes
 ------------------------- */
@@ -60,7 +84,242 @@ body {
 .featurette-heading {
   letter-spacing: -.05rem;
 }
+/* carousel.css (Añadir al final) */
 
+/* Estilo para los botones principales del carrusel */
+.carousel .btn-primary {
+  /* Color de fondo: Verde lima o menta (puedes cambiar este código) */
+  --bs-btn-bg: #4CAF50; /* Un verde vibrante */
+  /* Color del borde (igual al fondo) */
+  --bs-btn-border-color: #4CAF50;
+  
+  /* Efecto al pasar el ratón (Hover) */
+  --bs-btn-hover-bg: #388E3C; /* Un verde más oscuro para el hover */
+  --bs-btn-hover-border-color: #388E3C;
+  
+  /* Efecto al hacer clic (Active/Focus) */
+  --bs-btn-active-bg: #2E7D32; 
+  --bs-btn-active-border-color: #2E7D32;
+  transition: all 0.3s ease; /* Transición para que el color cambie suavemente */
+  /* ... resto de las propiedades que definimos arriba ... */
+  --bs-btn-bg: #4CAF50; 
+  --bs-btn-border-color: #4CAF50;
+  /* ... */ 
+}
+/* carousel.css (Añadir al final) */
+
+/* Estilo para los indicadores del carrusel (los puntos) */
+.carousel-indicators [data-bs-target] {
+  width: 12px;    /* Aumentar un poco el tamaño */
+  height: 12px;   
+  border-radius: 50%; /* Convertirlos en círculos perfectos */
+  background-color: white; /* Color base blanco */
+  opacity: 0.5; /* Opacidad para los inactivos */
+  transition: opacity 0.3s ease; 
+}
+
+/* Indicador activo */
+.carousel-indicators .active {
+  opacity: 1; /* Totalmente visibles cuando están activos */
+  background-color: #1a8a10; /* Podemos usar el color de la marca para el activo */
+}
+/* carousel.css (Añadir al final) */
+
+/* 1. Barra de Navegación (Header) */
+.navbar.bg-dark {
+    /* Usamos un color oscuro pero con un ligero toque de tu color de marca */
+    background-color: #000000 !important; /* Un gris oscuro más profundo */
+    box-shadow: 0 2px 4px rgb(19, 32, 23); /* Sombra sutil para que resalte */
+}
+/* carousel.css (Añadir al final) */
+
+/* 2. Enlaces del Menú (Nav Links) */
+.navbar-nav .nav-link {
+    color: #ecf0f1; /* Color base de texto más claro (Blanco/Gris muy claro) */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Transición suave para el hover */
+    margin: 0 5px; /* Pequeño espacio entre enlaces */
+    padding-bottom: 5px; /* Espacio para la línea inferior */
+}
+
+/* Efecto al pasar el ratón (Hover Effect) */
+.navbar-nav .nav-link:hover {
+    color: #4CAF50; /* ¡El verde de tu marca! */
+}
+
+/* El enlace activo debe verse como si estuviera en hover */
+
+/* carousel.css (Añadir al final) */
+
+/* 3. Estilo del Logo GO-DRINK */
+.navbar-brand {
+    color: #509153 !important; /* El logo en color verde vibrante */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+/* carousel.css (Añadir al final o verificar si ya está) */
+
+/* Esto compensa el espacio de la barra de navegación fija */
+#productos,
+#beneficios,
+#contacto {
+  scroll-margin-top: 4rem; /* El navegador dejará 5rem (aprox. 80px) de espacio al anclar. */
+}
+/* carousel.css (Modificar el estilo general de la sección de contacto) */
+
+#contacto {
+  /* ¡LA CLAVE! Forzamos a que no haya espacio extra arriba. */
+  padding-top: 0 !important; 
+  margin-top: 0 !important;
+  
+  /* Mantenemos el espacio inferior para separar del footer */
+  padding-bottom: 2rem;
+  padding: 1rem;
+}
+/* carousel.css (Añadir al final) */
+
+/* Contenedor de cada producto: Base de la "Tarjeta" */
+.marketing .col-lg-4 {
+  margin-bottom: 5rem; /* Más espacio entre las filas y el contenido */
+  padding: 15px; /* Espacio interior para el efecto hover */
+  border-radius: 10px; /* Bordes redondeados */
+  
+  /* Sombra sutil para que parezca una tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.199); 
+  
+  /* Transición suave para todos los efectos (movimiento y sombra) */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+  text-align: center;
+}
+
+/* Estilo para los títulos */
+.marketing .col-lg-4 h2.fw-normal {
+  font-weight: 700; 
+  color: #000000; /* Color más oscuro para mejor contraste */
+  margin-top: 1rem;
+}
+
+/* Estilo para el botón secundario (Comprar) */
+.marketing .btn-secondary {
+  /* Usaremos un gris que contraste bien, pero aplicaremos el verde en el hover */
+  --bs-btn-bg: #55b33d; /* Gris de Bootstrap */
+  --bs-btn-border-color: #105015;
+  --bs-btn-hover-bg: #4CAF50; /* ¡El verde de tu marca al pasar el ratón! */
+  --bs-btn-hover-border-color: #4CAF50;
+  --bs-btn-active-bg: #388E3C; 
+  --bs-btn-active-border-color: #388E3C;
+  transition: all 0.3s ease; /* Transición suave para el botón */
+}
+/* carousel.css (Añadir al final) */
+
+/* Efecto al pasar el ratón sobre la tarjeta de producto */
+.marketing .col-lg-4:hover {
+  /* Levanta la tarjeta 5 píxeles */
+  transform: translateY(-5px); 
+  
+  /* Sombra más fuerte para el efecto "flotante" */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+/* Estilo general de la sección de contacto */
+#contacto {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Estilo para los campos de entrada */
+.contact-form .form-control {
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+/* Efecto focus interactivo */
+.contact-form .form-control:focus {
+  border-color: #4CAF50; /* Borde verde al hacer clic */
+  box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25); /* Sombra verde sutil */
+}
+
+/* Botón del formulario */
+.contact-form .btn-primary {
+  /* Usamos el verde de marca para que sea llamativo */
+  --bs-btn-bg: #4CAF50;
+  --bs-btn-border-color: #4CAF50;
+  --bs-btn-hover-bg: #388E3C; 
+  --bs-btn-hover-border-color: #388E3C;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+/* carousel.css (Estilos del Footer Exótico) */
+
+.go-drink-footer {
+  /* Fondo Oscuro / Azul Marino para un look premium */
+  background-color: #000000; 
+  color: #fff;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.go-drink-footer .footer-title {
+  color: #4CAF50; /* Títulos de columna en el verde de la marca */
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.go-drink-footer .nav-link {
+  color: #ccc !important; /* Enlaces en gris claro */
+  transition: color 0.3s;
+}
+
+.go-drink-footer .nav-link:hover {
+  color: #4CAF50 !important; /* Resalta en verde al pasar el ratón */
+  text-decoration: underline;
+}
+
+/* Estilo para iconos (simulados como texto simple FB, IG, X) */
+.go-drink-footer .footer-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.go-drink-footer .footer-icon:hover {
+  color: #4CAF50;
+}
+
+/* Estilo del enlace "Volver Arriba" */
+.go-drink-footer .back-to-top {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.go-drink-footer .back-to-top:hover {
+  color: #4CAF50;
+}
+.go-drink-footer p.small {
+  color: #fff !important; /* ¡Forzamos el color blanco! */
+}
+/* carousel.css (Añadir al final) */
+
+/* Neutralizamos los márgenes y paddings para un diseño de borde a borde */
+body, main {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow-x: hidden; /* Esto es clave para evitar barras de desplazamiento horizontales */
+}
+
+/* Forzamos al footer a ocupar el 100% */
+.go-drink-footer {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  /* El resto de tus estilos del footer */
+}
 /* rtl:end:remove */
 
 /* RESPONSIVE CSS
@@ -76,6 +335,9 @@ body {
 
   .featurette-heading {
     font-size: 80px;
+  }
+  .carousel-item{
+    height: 35rem;
   }
 }
 
